@@ -1,21 +1,25 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data: { wpPage } }) => {
   return (
     <main>
-      <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
-      <h1>{data.wpPage.test.test}</h1>
+      {wpPage.blocks?.pageBuilder?.map(el => (
+        <p>
+          {el.switch}
+        </p>
+      ))}
     </main>
   )
 }
 
 export const query = graphql`
   query MyQuery {
-    wpPage {
-      content
-      test{
-        test
+    wpPage(id: {eq: "cG9zdDoxMg=="}) {
+      blocks {
+        pageBuilder {
+          switch
+        }
       }
     }
   }
