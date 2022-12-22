@@ -4,21 +4,17 @@ import * as React from "react"
 const IndexPage = ({ data: { wpPage } }) => {
   return (
     <main>
-      {wpPage.blocks?.pageBuilder?.map(el => (
-        <p>
-          {el.switch}
-        </p>
-      ))}
+      {wpPage.homepage.heroHome.title}
     </main>
   )
 }
 
 export const query = graphql`
   query MyQuery {
-    wpPage(id: {eq: "cG9zdDoxMg=="}) {
-      blocks {
-        pageBuilder {
-          switch
+    wpPage(homepage: {heroHome: {title: {ne: null}}}) {
+      homepage {
+        heroHome {
+          title
         }
       }
     }

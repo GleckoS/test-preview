@@ -6,7 +6,7 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": "https://test.splatapozyczek.pl/graphql"
+      url: 'https://gatsbytest.kryptonum.co.uk/graphql',
     }
   }]
 };
